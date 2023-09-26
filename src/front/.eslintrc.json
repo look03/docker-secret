@@ -1,7 +1,0 @@
-{
-    "parserOptions": {
-        "requireConfigFile": false,
-        "ecmaVersion": 2020
-    },
-    "extends": ["plugin:vue/base"]
-}

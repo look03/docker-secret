@@ -3,15 +3,16 @@
     <div class="navbar">
       <h1>Secret</h1>
       <router-link class="router-link" to="/">Домашняя страница</router-link>
-      <router-link class="router-link" to="/text/add">Создать скрытый текст</router-link>
+      <router-link class="router-link" to="/text/add"
+        >Создать скрытый текст</router-link
+      >
     </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 <style>
@@ -19,7 +20,7 @@ export default {
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 60em
+  width: 60em;
 }
 .navbar {
   width: 100%;

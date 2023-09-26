@@ -1,5 +1,5 @@
-import webserverInstance from 'webserver.instance';
+import webserverInstance from "webserver.instance";
 
 export default {
   webserverInstance,
-}
+};

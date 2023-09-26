@@ -11,7 +11,7 @@ help: ## Show this help
 	    	make up"
 # --- [ Init ] --------------------------------------------------------------------------------------------------
 
-init: init-folders up ## Инициализация проекта
+init: init-folders build up ## Инициализация проекта
 
 init-folders:
 	sudo chown -R $(USER):$(USER) ../docker-secret \
@@ -20,7 +20,7 @@ init-folders:
 build: ## Сборка docker контейнеров приложения
 	$(docker_compose_bin) build
 
-up: build ## Сборка и поднятие docker контейнеров при помощи docker-compose
+up: ## Сборка и поднятие docker контейнеров при помощи docker-compose
 	$(docker_compose_bin) -f docker-compose.yml up -d --remove-orphans
 
 down: ## Удаление docker контейнеров

@@ -1,7 +1,7 @@
-const Router = require('express')
-const router = new Router()
-const textController = require('../controller/textController')
+const Router = require("express");
+const router = new Router();
+const textController = require("../controller/textController");
 
-router.get('/:id', textController.getOne)
+router.get("/:id", textController.getOne);
 
-module.exports = router
+module.exports = router;

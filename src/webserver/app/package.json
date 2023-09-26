@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint \"src/**/*.ts\" --fix",
-    "lint:ci": "eslint \"src/**/*.ts\""
+    "lint": "eslint . --ext .js,.vue --max-warnings 0",
+    "lint-fix": "eslint . --fix --ext .js"
   },
   "dependencies": {
     "@journeyapps/sqlcipher": "^5.3.1",
@@ -15,6 +15,7 @@
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "eslint-plugin-vue": "^9.17.0",
     "express": "^4.18.2",
     "path": "^0.12.7",
     "pg": "^8.11.1",
@@ -23,9 +24,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "eslint": "^7.32.0",
-    "nodemon": "^3.0.1"
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nodemon": "^3.0.1",
+    "optionator": "^0.9.3"
   },
   "eslintConfig": {
     "root": true,

@@ -1,16 +1,13 @@
 <template>
   <form class="form" @submit.prevent>
     <h2><strong>Создание секретного текста:</strong></h2>
-    <h4 hidden>ID: {{postData.id}}</h4>
+    <h4 hidden>ID: {{ postData.id }}</h4>
     <textarea
-        v-model="postData.value"
-        class="input"
-        placeholder="Введите текст тут..."
+      v-model="postData.value"
+      class="input"
+      placeholder="Введите текст тут..."
     ></textarea>
-    <button
-        class="btn"
-        @click="createText"
-    >Создать</button>
+    <button class="btn" @click="createText">Создать</button>
   </form>
 </template>
 
@@ -20,18 +17,18 @@ import * as uuid from "uuid";
 export default {
   data() {
     return {
-     postData: {
-       id: uuid.v4(),
-       value: ''
-     }
-    }
+      postData: {
+        id: uuid.v4(),
+        value: "",
+      },
+    };
   },
   methods: {
     createText() {
-      this.$emit('create', this.postData)
-    }
-  }
-}
+      this.$emit("create", this.postData);
+    },
+  },
+};
 </script>
 
 <style scoped>

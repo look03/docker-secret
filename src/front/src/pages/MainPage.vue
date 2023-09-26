@@ -1,14 +1,17 @@
 <template>
   <div class="text">
     <h1>Добро пожаловать на домашнюю страницу.</h1>
-    <h3>Чтобы создать секретный текст, нажмите<router-link class="router-link" to="/text/add">сюда</router-link>.</h3>
+    <h3>
+      Чтобы создать секретный текст, нажмите<router-link
+        class="router-link"
+        to="/text/add"
+        >сюда</router-link
+      >.
+    </h3>
     <form>
-      <h3>Чтобы перейти к созданному тексту, вставьте ID в поле: </h3>
-      <input v-model="id" class="input">
-      <button
-          class="btn"
-          @click="getText"
-      >Поиск</button>
+      <h3>Чтобы перейти к созданному тексту, вставьте ID в поле:</h3>
+      <input v-model="id" class="input" />
+      <button class="btn" @click="getText">Поиск</button>
     </form>
   </div>
 </template>
@@ -17,15 +20,15 @@
 export default {
   data() {
     return {
-      id: ''
-    }
+      id: "",
+    };
   },
   methods: {
     getText() {
-      this.$router.push('/' + this.id)
-    }
-  }
-}
+      this.$router.push("/" + this.id);
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -1,11 +1,9 @@
-const Router = require('express')
-const router = new Router()
-const addTextRouter = require('./addTextRouter')
-const textRouter = require('./textRouter')
-const homeRouter = require('./homeRouter')
+const Router = require("express");
+const router = new Router();
+const addTextRouter = require("./addTextRouter");
+const textRouter = require("./textRouter");
 
-// router.use('/', homeRouter)
-router.use('/text', addTextRouter)
-router.use('/', textRouter)
+router.use("/text", addTextRouter);
+router.use("/", textRouter);
 
-module.exports = router
+module.exports = router;

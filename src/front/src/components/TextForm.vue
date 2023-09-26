@@ -1,12 +1,14 @@
 <template>
   <div v-if="post.id !== ''">
     <textarea disabled class="input" v-model="post.value"></textarea>
-    <br/>
+    <br />
     <h3>Ссылка: http://localhost:8081/{{ post.id }}</h3>
     <h3>ID: {{ post.id }}</h3>
   </div>
   <div v-else>
-    <h2 class="errorMessage">Сообщение с ID: '{{ $route.params.id }}' отустствует!</h2>
+    <h2 class="errorMessage">
+      Сообщение с ID: '{{ $route.params.id }}' отустствует!
+    </h2>
   </div>
 </template>
 
@@ -17,24 +19,24 @@ export default {
   data() {
     return {
       post: {
-        id: '',
-        value: ''
-      }
-    }
+        id: "",
+        value: "",
+      },
+    };
   },
   methods: {
     async getText() {
       const text = await webserverInstance.get(this.$route.params.id);
       if (text.data != null) {
-        this.post.id = text.data.id
-        this.post.value = text.data.text
+        this.post.id = text.data.id;
+        this.post.value = text.data.text;
       }
-    }
+    },
   },
   mounted() {
-    this.getText()
-  }
-}
+    this.getText();
+  },
+};
 </script>
 
 <style scoped>
