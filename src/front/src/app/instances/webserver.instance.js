@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const webserverInstance = axios.create({
-  baseURL: "http://127.0.0.1:3000",
+  baseURL: "/rest_api",
 });
 
 export default webserverInstance;

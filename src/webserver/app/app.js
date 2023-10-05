@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const sequelize = require("./db");
 const router = require("./routes");
+const restApi = require("./rest_api");
 const cors = require("cors");
 const errorHandler = require("./error/ErrorHandler");
 const bodyParser = require("body-parser");
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../dist")));
 app.use("/", router);
+app.use("/rest_api", restApi);
 
 app.use(errorHandler);
 

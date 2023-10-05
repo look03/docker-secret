@@ -18,19 +18,15 @@ services:
       - ./postgres/db_backups:/backups
       - ./postgres/pg:/var/lib/postgresql/data
 
-  nginx:
-    <<: *base
-    build: ./containers/nginx
-    ports:
-      - 127.0.0.1:3000:3000 # webserver
-    volumes:
-      - /etc/localtime:/etc/localtime/:ro
-      - ./logs/nginx/:/var/log/nginx
-      - ./src/server/app:/app
-    depends_on:
-      - webserver
-    command: nginx -g "daemon off;"
-    restart: always
+#  front:
+#    <<: *base
+#    build:
+#      context: ./src/front
+#    volumes:
+#      - ./src/front/src:/src
+#      - ./src/front/node_modules:/node_modules
+#    env_file:
+#      - .env
 
   webserver:
     << : *base
@@ -45,6 +41,22 @@ services:
       - 127.0.0.1:5858:5858
     depends_on:
       - postgres
+
+  nginx-secret:
+    <<: *base
+    build: ./containers/nginx
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - /etc/localtime:/etc/localtime/:ro
+      - ./logs/nginx/:/var/log/nginx
+      - ./src/webserver/app:/app
+      - ./src/front:/var/www/html
+    depends_on:
+      - webserver
+    command: nginx -g "daemon off;"
+    restart: always
 
 networks:
   docker_net:

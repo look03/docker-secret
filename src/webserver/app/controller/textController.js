@@ -12,6 +12,10 @@ class TextController {
 
   async create(req, res, next) {
     try {
+      console.log(
+        122,
+        '<<<<<<<<<<<<<< 122',
+      );
       const textField = req.body.value;
       const idField = req.body.id;
       const text = await Text.create({
@@ -20,7 +24,7 @@ class TextController {
       });
       return res.json(text);
     } catch (e) {
-      next(ApiError.internal(e.message));
+      // next(ApiError.internal(e.message));
     }
   }
 }
