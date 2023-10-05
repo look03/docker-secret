@@ -11,11 +11,14 @@ help: ## Show this help
 	    	make up"
 # --- [ Init ] --------------------------------------------------------------------------------------------------
 
-init: init-folders build up ## Инициализация проекта
+init: init-folders build build-front up ## Инициализация проекта
 
 init-folders:
 	sudo chown -R $(USER):$(USER) ../docker-secret \
 	&& sudo chown -R $(USER):$(USER) src/ \
+
+build-front: ## build front scripts from source
+	@cd ./src/front && npm i --no-package-lock && npm run build
 
 build: ## Сборка docker контейнеров приложения
 	$(docker_compose_bin) build
